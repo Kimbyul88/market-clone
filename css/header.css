@@ -1,0 +1,47 @@
+/* 헤더바 */
+header {
+  margin-top: 10px;
+  border-bottom: 1px solid #ededef;
+}
+
+/* 인포바 */
+.info-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px 0px 10px; /* 상 부터 시계방향으로!! */
+}
+
+.info-bar__time {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.info-bar__icons img {
+  width: 13px;
+}
+
+/* 메뉴바 */
+.menu-bar {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 11px 11px 11px;
+}
+.menu-bar__location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.menu-bar__location img {
+  width: 17px;
+}
+.menu-bar__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-bar__icons img {
+  margin-left: 10px;
+  width: 20px;
+}
