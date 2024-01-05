@@ -20,11 +20,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 1;
 }
 
 @media screen and (max-width: 380px) {
   .media-info-msg {
-    opacity: 0;
+    display: none;
   }
 }

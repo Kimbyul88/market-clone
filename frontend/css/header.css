@@ -1,4 +1,3 @@
-/* 헤더바 */
 header {
   margin-top: 10px;
   border-bottom: 1px solid #ededef;
@@ -17,7 +16,7 @@ header {
 }
 
 .info-bar__icons img {
-  width: 13px;
+  width: 15px;
 }
 
 /* 메뉴바 */
