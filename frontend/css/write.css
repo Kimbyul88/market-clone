@@ -1,0 +1,81 @@
+.write-header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 50px;
+  border-bottom: 1.5px solid #cfcfcf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.write-header__left {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.write-header__left img {
+  width: 20px;
+}
+
+.write-header__center {
+  font-weight: bolder;
+}
+
+.write-header__right {
+  margin-right: 10px;
+  color: rgb(246, 122, 51);
+  cursor: pointer;
+}
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.submit-btn button {
+  width: 50px;
+  height: 30px;
+  color: rgb(246, 122, 51);
+  border: none;
+  background-color: white;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.submit-btn button:hover {
+  background-color: rgb(236, 236, 236);
+}
+
+form {
+  margin-top: 60px;
+}
+
+input[type="text"] {
+  width: 60vw;
+  height: 30px;
+  font-size: 20px;
+  margin: 0 0 0 10px;
+}
+
+input[type="number"] {
+  width: 60vw;
+  height: 30px;
+  font-size: 20px;
+  margin: 0 0 0 10px;
+}
+input::placeholder {
+  font-size: 10px;
+  align-items: start;
+}
+
+#write-form div {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 10px 5px 10px 5px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid #cfcfcf;
+}

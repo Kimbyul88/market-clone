@@ -8,6 +8,8 @@ body {
     BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
+  position: relative;
 }
 
 .media-info-msg {
@@ -16,13 +18,14 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 20vh;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 400px) {
   .media-info-msg {
     display: none;
   }

@@ -1,4 +1,5 @@
 const form = document.getElementById("write-form");
+const headerArrow = document.querySelector(".write-header__left");
 
 const handleSubmitForm = async (event) => {
   event.preventDefault();
@@ -20,4 +21,9 @@ const handleSubmitForm = async (event) => {
   }
 };
 
+const handlePrev = () => {
+  window.location.pathname = "/";
+};
+
 form.addEventListener("submit", handleSubmitForm);
+headerArrow.addEventListener("click", handlePrev);

@@ -49,7 +49,7 @@ main {
 }
 
 .write-btn {
-  background-color: var(--button-primary);
+  background-color: rgb(246, 122, 51);
   color: white;
   padding: 10px 15px 10px 15px;
   border-radius: 25px;
@@ -64,5 +64,5 @@ main {
 }
 
 .write-btn:hover {
-  background-color: var(--button-hover);
+  background-color: rgb(161, 79, 32);
 }
