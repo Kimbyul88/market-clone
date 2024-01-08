@@ -1,4 +1,4 @@
-from fastapi import FastAPI,UploadFile,Form,Response
+from fastapi import FastAPI,UploadFile,Form,Response,Depends
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from fastapi.staticfiles import StaticFiles
@@ -25,13 +25,18 @@ cur.execute(f"""
 app = FastAPI()
 
 SECRET = "super-coding"; # 디코딩이 가능해서 숨겨진 정보도 해석할수 있다.
-manager = LoginManager(SECRET,'/login.html');
+manager = LoginManager(SECRET,'/login')
+
 @manager.user_loader()
-def query_user(id):
+def query_user(data):
+    WHERE_STATEMENTS = f'id="{data}"'
+    if type(data) == dict: #데이터가 객체형태로 넘어오게 되면?
+        WHERE_STATEMENTS = f'''id="{data['id']}"'''
+    
     con.row_factory = sqlite3.Row
     cur = con.cursor()
     user = cur.execute(f"""
-                        SELECT * from users WHERE id='{id}'
+                        SELECT * from users WHERE {WHERE_STATEMENTS}
                         """).fetchone() # 하나만 가져올 것이기 때문에!
     return user
 
@@ -41,16 +46,19 @@ def query_user(id):
 def login(id:Annotated[str,Form()], 
            password:Annotated[str,Form()]):
     user = query_user(id)    
-    print(user)
+    #print(user)
     if not user:
         raise InvalidCredentialsException #status에 401을 리턴해준다. 
     elif password != user['password']:
         raise InvalidCredentialsException #200을 리턴해준다.
     
     access_token = manager.create_access_token(data={
-        'id':user['id'],
-        'name':user['name'],
-        'email':user['email']      
+        'sub' : {
+            'id':user['id'],
+            'name':user['name'],
+            'email':user['email']      
+        },
+        "exp" : "7200000"
     })
     return {'access_token':access_token}
 
@@ -75,7 +83,8 @@ async def create_item(
                 price:Annotated[int,Form()],
                 description:Annotated[str,Form()],
                 place:Annotated[str,Form()],
-                insertAt:Annotated[int,Form()]
+                insertAt:Annotated[int,Form()],
+                # user=Depends(manager) #인증이 되었을때만 추가를 할 수 있다.
                 ):
 
     image_bytes = await image.read()
@@ -88,7 +97,7 @@ async def create_item(
     return '200'
 
 @app.get("/items") # items라는 get요청이 들어왔을때!
-async def get_items():
+async def get_items(user=Depends(manager)): #user가 인증되었을때만 가져오기
     #컬럼명도 같이 가져옴
     con.row_factory = sqlite3.Row
     cur = con.cursor() #db에서 현재 커넥션의 위치를 업데이트 해준다.
