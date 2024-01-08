@@ -1,0 +1,54 @@
+<div class="write-header" id="write-header">
+  <div class="write-header__left">
+    <img src="assets/arrow2.svg" alt="" />
+  </div>
+  <div class="write-header__center">중고거래 글쓰기</div>
+  <div class="write-header__right"></div>
+</div>
+<!--write-header-->
+<form id="write-form">
+  <div>
+    <label for="image">이미지</label>
+    <input type="file" id="image" name="image" />
+  </div>
+  <div>
+    <label for="title">제목</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      placeholder="제목을 입력해주세요"
+    />
+  </div>
+  <div>
+    <label for="price">가격</label>
+    <input
+      type="number"
+      id="price"
+      name="price"
+      placeholder="가격을 입력해주세요"
+    />
+  </div>
+  <div>
+    <label for="description">설명</label>
+    <input
+      type="text"
+      id="description"
+      name="description"
+      placeholder="상품에 대한 설명을 입력해주세요"
+    />
+  </div>
+  <div>
+    <label for="place">장소</label>
+    <input
+      type="text"
+      id="place"
+      name="place"
+      placeholder="거래 가능 장소를 입력해주세요"
+    />
+  </div>
+  <div class="submit-btn"><button type="submit">완료</button></div>
+</form>
+
+<style>
+</style>
