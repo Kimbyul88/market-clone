@@ -1,6 +1,7 @@
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"
-></script>
+>
+</script>
 
 <!--action = 서버에서 어디로 보낼건지-->
 <form id="signup-form" action="/signup" method="POST">

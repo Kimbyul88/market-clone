@@ -5,6 +5,7 @@
   import Write from "./pages/Write.svelte";
   import Router from "svelte-spa-router";
   import "./css/style.css";
+  import "./css/write.css";
 
   //자바스트립트 작성
   const routes = {
